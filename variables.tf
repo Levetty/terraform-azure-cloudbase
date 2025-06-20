@@ -131,5 +131,5 @@ variable "always_recreate_cloudbase_app" {
 variable "use_random_suffix" {
   description = "(optional) Whether to append a random suffix to role definition names. This helps avoid conflicts when recreating roles."
   type        = bool
-  default     = true
+  default     = false
 }

@@ -47,5 +47,5 @@ variable "cwpp_permissions" {
 variable "use_random_suffix" {
   description = "Whether to append a random suffix to role definition names"
   type        = bool
-  default     = true
+  default     = false
 }

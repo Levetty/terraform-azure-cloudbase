@@ -1,6 +1,6 @@
 # CSPM Role Definition
 resource "azurerm_role_definition" "cspm" {
-  name        = var.cspm_role_def_name
+  name        = "${var.cspm_role_def_name}_${var.subscription_id}"
   scope       = "/subscriptions/${var.subscription_id}"
   description = "Custom role for Cloudbase CSPM"
 
@@ -21,7 +21,7 @@ resource "azurerm_role_definition" "cspm" {
 # CWPP Role Definition (if enabled)
 resource "azurerm_role_definition" "cwpp" {
   count       = var.enable_cnapp ? 1 : 0
-  name        = var.cwpp_role_def_name
+  name        = "${var.cwpp_role_def_name}_${var.subscription_id}"
   scope       = "/subscriptions/${var.subscription_id}"
   description = "Custom role for Cloudbase CWPP"
 

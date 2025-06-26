@@ -43,9 +43,3 @@ variable "cwpp_permissions" {
     not_data_actions = list(string)
   })
 }
-
-variable "use_random_suffix" {
-  description = "Whether to append a random suffix to role definition names"
-  type        = bool
-  default     = false
-}

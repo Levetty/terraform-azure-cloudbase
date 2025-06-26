@@ -22,7 +22,6 @@ module "cloudbase-role-setup" {
   subscription_id      = var.subscription_id
   service_principal_id = module.cloudbase-app.service_principal_id
   enable_cnapp         = var.enable_cnapp
-  use_random_suffix    = var.use_random_suffix
 
   cspm_role_def_name = var.cspm_permissions.custom.role_def_name
   cspm_permissions = {

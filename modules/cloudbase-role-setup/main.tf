@@ -1,11 +1,6 @@
-locals {
-  now_utc = formatdate("YYYYMMDDhhmm", timestamp())
-  random  = var.use_random_suffix ? "-${local.now_utc}" : ""
-}
-
 # CSPM Role Definition
 resource "azurerm_role_definition" "cspm" {
-  name        = "${var.cspm_role_def_name}${local.random}"
+  name        = var.cspm_role_def_name
   scope       = "/subscriptions/${var.subscription_id}"
   description = "Custom role for Cloudbase CSPM"
 
@@ -26,7 +21,7 @@ resource "azurerm_role_definition" "cspm" {
 # CWPP Role Definition (if enabled)
 resource "azurerm_role_definition" "cwpp" {
   count       = var.enable_cnapp ? 1 : 0
-  name        = "${var.cwpp_role_def_name}${local.random}"
+  name        = var.cwpp_role_def_name
   scope       = "/subscriptions/${var.subscription_id}"
   description = "Custom role for Cloudbase CWPP"
 

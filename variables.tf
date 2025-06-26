@@ -52,7 +52,7 @@ variable "cspm_permissions" {
 
   default = {
     custom = {
-      role_def_name = "CloudbaseCSPMRoleV20240906"
+      role_def_name = "CloudbaseCSPMRoleV20240906_TERRAFORM"
       permissions = {
         actions = [
           "*/read",
@@ -98,7 +98,7 @@ variable "cwpp_permissions" {
 
   default = {
     custom = {
-      role_def_name = "CloudbaseCWPPRoleV20240906"
+      role_def_name = "CloudbaseCWPPRoleV20240906_TERRAFORM"
       permissions = {
         actions = [
           "Microsoft.Resources/subscriptions/resourceGroups/write",
@@ -124,12 +124,6 @@ variable "cwpp_permissions" {
 
 variable "always_recreate_cloudbase_app" {
   description = "(optional) Controls whether to always recreate the cloudbase_app. When set to true, the application will be recreated (with a new name) even if it already exists. Set to false if you are using remote Terraform state."
-  type        = bool
-  default     = false
-}
-
-variable "use_random_suffix" {
-  description = "(optional) Whether to append a random suffix to role definition names. This helps avoid conflicts when recreating roles."
   type        = bool
   default     = false
 }

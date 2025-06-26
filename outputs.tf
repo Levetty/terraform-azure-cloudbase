@@ -14,9 +14,9 @@ output "directory_id" {
 }
 
 output "cspm_role_def_name" {
-  value = var.cspm_permissions.custom.role_def_name
+  value = local.cspm_role_def_name
 }
 
 output "cwpp_role_def_name" {
-  value = var.cwpp_permissions.custom.role_def_name
+  value = local.cwpp_role_def_name
 }

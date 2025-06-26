@@ -31,7 +31,6 @@ module "cloudbase" {
 - `cspm_permissions`: Specify the permissions for the CSPM role
 - `cwpp_permissions`: Specify the permissions for the CWPP role
 - `always_recreate_cloudbase_app`: Controls whether to always recreate the cloudbase_app (default: false)
-- `use_random_suffix`: Whether to append a random suffix to role definition names (default: false)
 
 ## Outputs
 

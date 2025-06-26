@@ -14,8 +14,7 @@ resource "azurerm_role_definition" "cspm" {
   assignable_scopes = ["/subscriptions/${var.subscription_id}"]
 
   lifecycle {
-    ignore_changes  = [assignable_scopes, name, permissions]
-    prevent_destroy = true
+    ignore_changes = [assignable_scopes, name, permissions]
   }
 }
 
@@ -36,8 +35,7 @@ resource "azurerm_role_definition" "cwpp" {
   assignable_scopes = ["/subscriptions/${var.subscription_id}"]
 
   lifecycle {
-    ignore_changes  = [assignable_scopes, name, permissions]
-    prevent_destroy = true
+    ignore_changes = [assignable_scopes, name, permissions]
   }
 }
 

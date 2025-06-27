@@ -7,6 +7,11 @@ provider "azurerm" {
   subscription_id = var.subscription_id
 }
 
+locals {
+  cspm_role_def_name = "${var.cspm_permissions.custom.role_def_name}_${var.subscription_id}"
+  cwpp_role_def_name = "${var.cwpp_permissions.custom.role_def_name}_${var.subscription_id}"
+}
+
 # Cloudbase App Module
 module "cloudbase-app" {
   source = "./modules/cloudbase-app"
@@ -23,7 +28,7 @@ module "cloudbase-role-setup" {
   service_principal_id = module.cloudbase-app.service_principal_id
   enable_cnapp         = var.enable_cnapp
 
-  cspm_role_def_name = var.cspm_permissions.custom.role_def_name
+  cspm_role_def_name = local.cspm_role_def_name
   cspm_permissions = {
     actions          = var.cspm_permissions.custom.permissions.actions
     not_actions      = var.cspm_permissions.custom.permissions.not_actions
@@ -31,7 +36,7 @@ module "cloudbase-role-setup" {
     not_data_actions = var.cspm_permissions.custom.permissions.not_data_actions
   }
 
-  cwpp_role_def_name = var.cwpp_permissions.custom.role_def_name
+  cwpp_role_def_name = local.cwpp_role_def_name
   cwpp_permissions = {
     actions          = var.cwpp_permissions.custom.permissions.actions
     not_actions      = var.cwpp_permissions.custom.permissions.not_actions

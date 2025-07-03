@@ -8,9 +8,6 @@ resource "azuread_service_principal" "msgraph" {
 
 # Local variables
 locals {
-  now_utc = formatdate("YYYYMMDDhhmm", timestamp())
-  random  = var.always_recreate_cloudbase_app ? "-${local.now_utc}" : ""
-
   # Microsoft Graph API permissions (excluding Organization.Read.All)
   msgraph_resource_access = {
     "User.Read.All" = {
@@ -34,7 +31,7 @@ locals {
 
 # Azure AD Application
 resource "azuread_application" "cloudbase_security_scan_app" {
-  display_name = "cloudbase-security-scan-app${local.random}"
+  display_name = var.app_name
 
   required_resource_access {
     resource_app_id = data.azuread_application_published_app_ids.well_known.result.MicrosoftGraph

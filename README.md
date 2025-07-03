@@ -2,6 +2,12 @@
 
 This Terraform module sets up Cloudbase security scanning for Azure environments.
 
+## Key Features
+
+- Automatically creates a unique application name by including the subscription ID (`cloudbase-security-scan-app-<subscription-id>`)
+- Sets up necessary permissions for CSPM and CWPP scanning
+- Configures federated identity credentials for secure authentication
+
 ## Usage
 
 ```hcl
@@ -12,9 +18,9 @@ module "cloudbase" {
   subscription_id = "your-azure-subscription-id"
 
   federated_identity_credential_security_scan = {
-    audiences = ["api://AzureADTokenExchange"]
-    issuer    = "https://token.actions.githubusercontent.com"
-    subject   = "repo:your-org/your-repo:ref:refs/heads/main"
+    audiences = [<audience>]
+    issuer    = <issuer>
+    subject   = <subject>
   }
 }
 ```
@@ -30,7 +36,6 @@ module "cloudbase" {
 - `enable_cnapp`: Enable CNAPP functions (default: true)
 - `cspm_permissions`: Specify the permissions for the CSPM role
 - `cwpp_permissions`: Specify the permissions for the CWPP role
-- `always_recreate_cloudbase_app`: Controls whether to always recreate the cloudbase_app (default: false)
 
 ## Outputs
 

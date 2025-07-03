@@ -121,9 +121,3 @@ variable "cwpp_permissions" {
     built_in = []
   }
 }
-
-variable "always_recreate_cloudbase_app" {
-  description = "(optional) Controls whether to always recreate the cloudbase_app. When set to true, the application will be recreated (with a new name) even if it already exists. Set to false if you are using remote Terraform state."
-  type        = bool
-  default     = false
-}

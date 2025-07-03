@@ -16,7 +16,7 @@ locals {
 module "cloudbase-app" {
   source = "./modules/cloudbase-app"
 
-  always_recreate_cloudbase_app = var.always_recreate_cloudbase_app
+  app_name                      = "cloudbase-security-scan-app-${var.subscription_id}"
   federated_identity_credential = var.federated_identity_credential
 }
 

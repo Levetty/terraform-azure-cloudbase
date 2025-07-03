@@ -1,7 +1,6 @@
-variable "always_recreate_cloudbase_app" {
-  description = "Always recreate the Cloudbase app with a unique timestamp suffix"
-  type        = bool
-  default     = false
+variable "app_name" {
+  description = "Name of the app"
+  type        = string
 }
 
 variable "federated_identity_credential" {

@@ -52,7 +52,7 @@ variable "cspm_permissions" {
 
   default = {
     custom = {
-      role_def_name = "CloudbaseCSPMRoleV20260805_TERRAFORM"
+      role_def_name = "CloudbaseCSPMRoleV20260827_TERRAFORM"
       permissions = {
         actions = [
           "*/read",
@@ -100,7 +100,7 @@ variable "cwpp_permissions" {
 
   default = {
     custom = {
-      role_def_name = "CloudbaseCWPPRoleV20260805_TERRAFORM"
+      role_def_name = "CloudbaseCWPPRoleV20260827_TERRAFORM"
       permissions = {
         actions = [
           "Microsoft.Resources/subscriptions/resourceGroups/write",

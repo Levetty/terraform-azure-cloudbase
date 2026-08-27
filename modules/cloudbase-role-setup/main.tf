@@ -13,9 +13,6 @@ resource "azurerm_role_definition" "cspm" {
 
   assignable_scopes = ["/subscriptions/${var.subscription_id}"]
 
-  lifecycle {
-    ignore_changes = [assignable_scopes, name, permissions]
-  }
 }
 
 # CWPP Role Definition (if enabled)
@@ -34,9 +31,6 @@ resource "azurerm_role_definition" "cwpp" {
 
   assignable_scopes = ["/subscriptions/${var.subscription_id}"]
 
-  lifecycle {
-    ignore_changes = [assignable_scopes, name, permissions]
-  }
 }
 
 # CSPM Role Assignment

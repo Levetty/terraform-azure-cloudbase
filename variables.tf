@@ -106,6 +106,7 @@ variable "cwpp_permissions" {
           "Microsoft.Resources/subscriptions/resourceGroups/write",
           "Microsoft.Compute/snapshots/write",
           "Microsoft.Compute/snapshots/delete",
+          "Microsoft.Compute/disks/beginGetAccess/action",
           "Microsoft.Compute/snapshots/beginGetAccess/action",
           "Microsoft.Compute/snapshots/endGetAccess/action",
           "Microsoft.ContainerRegistry/registries/pull/read",
